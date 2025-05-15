@@ -215,3 +215,95 @@ button:hover {
     font-size: 0.75rem;
   }
 }
+
+.circle-one, .circle-two {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.35;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(45deg, #c084fc, #ec4899, #60a5fa);
+  background-size: 200%;
+  animation: gradient-shift 15s ease infinite, orbit 18s ease-in-out infinite;
+}
+
+.circle-one {
+  width: 520px;
+  height: 520px;
+  top: 15%;
+  left: 5%;
+}
+
+.circle-two {
+  width: 480px;
+  height: 480px;
+  bottom: 20%;
+  right: 5%;
+  animation: gradient-shift 15s ease infinite, orbit-reverse 22s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes orbit {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(60px, 40px); }
+  50% { transform: translate(0, 80px); }
+  75% { transform: translate(-60px, 40px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes orbit-reverse {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-50px, -30px); }
+  50% { transform: translate(0, -70px); }
+  75% { transform: translate(50px, -30px); }
+  100% { transform: translate(0, 0); }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .input-section {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .task-item {
+    padding: 0.5rem;
+  }
+
+  .task-item .edit-button,
+  .task-item .delete-button,
+  .task-item .save-button,
+  .task-item .cancel-button {
+    padding: 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .circle-one {
+    width: 150px;
+    height: 150px;
+    top: 5%;
+    left: 5%;
+  }
+
+  .circle-two {
+    width: 120px;
+    height: 120px;
+    bottom: 10%;
+    right: 5%;
+  }
+}
